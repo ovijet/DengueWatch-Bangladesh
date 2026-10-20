@@ -68,7 +68,7 @@ export default function SearchPage() {
             ))}
           </div>
         ) : (
-          <p>ffffffffff</p>
+          <p>not found </p>
         )}
       </div>
     </main>

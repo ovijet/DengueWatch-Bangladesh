@@ -6,15 +6,21 @@ interface Job {
   id: number;
   title: string;
   company: string;
+  location: string;
 }
 
 const jobs: Job[] = [
-  { id: 1, title: "Frontend Developer", company: "Google" },
-  { id: 2, title: "Backend Developer", company: "Microsoft" },
-  { id: 3, title: "MERN Developer", company: "Meta" },
-  { id: 4, title: "Web Designer", company: "Figma" },
-  { id: 5, title: "React Developer", company: "Amazon" },
-  { id: 6, title: "Next.js Developer", company: "Vercel" },
+  { id: 1, title: "Frontend Developer", company: "Google", location: "Dhaka" },
+  {
+    id: 2,
+    title: "Backend Developer",
+    company: "Microsoft",
+    location: "Remote",
+  },
+  { id: 3, title: "MERN Developer", company: "Meta", location: "Khulna" },
+  { id: 4, title: "Web Designer", company: "Figma", location: "Chittagong" },
+  { id: 5, title: "React Developer", company: "Amazon", location: "Remote" },
+  { id: 6, title: "Next.js Developer", company: "Vercel", location: "Dhaka" },
 ];
 
 export default function SearchPage() {
@@ -29,6 +35,7 @@ export default function SearchPage() {
 
   const filteredJobs = jobs.filter((job) => {
     return (
+      job.location.toLowerCase().includes(search.toLowerCase()) ||
       job.title.toLowerCase().includes(search.toLowerCase()) ||
       job.company.toLowerCase().includes(search.toLowerCase())
     );
@@ -63,7 +70,7 @@ export default function SearchPage() {
           <div>
             {filteredJobs.map((job) => (
               <li key={job.id}>
-                <b>{job.title}</b> at {job.company}
+                <b>{job.title}</b> at {job.company} at {job.location}
               </li>
             ))}
           </div>

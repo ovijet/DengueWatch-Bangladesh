@@ -1,3 +1,5 @@
+"use client";
+import Count from "@/components/Count";
 import State from "@/components/State";
 import Image from "next/image";
 
@@ -6,6 +8,8 @@ export default function Home() {
     <div>
       <h1 className="text-3xl font-bold underline">Hello world!</h1>
       <State />
+      <Count
+      />
     </div>
   );
 }
